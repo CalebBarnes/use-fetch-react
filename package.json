@@ -1,11 +1,11 @@
 {
   "name": "use-fetch-react",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Using fetch in a react hook.",
   "main": "dist/index.js",
   "author": "CalebBarnes <caleb.d.barnes@gmail.com>",
   "license": "MIT",
-  "dependencies": {
+  "peerDependencies": {
     "react": "^16.11.0"
   },
   "devDependencies": {

@@ -24,8 +24,8 @@ export const useFetch = (endpoint, args = {}) => {
       method,
       headers
     })
-      .then(response => {
-        const json = response.json();
+      .then(async response => {
+        const json = await response.json();
         setState({
           ...state,
           loading: false,

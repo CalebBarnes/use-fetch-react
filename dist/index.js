@@ -55,30 +55,56 @@ var useFetch = function useFetch(endpoint) {
   function () {
     var _ref = _asyncToGenerator(
     /*#__PURE__*/
-    regeneratorRuntime.mark(function _callee() {
-      return regeneratorRuntime.wrap(function _callee$(_context) {
+    regeneratorRuntime.mark(function _callee2() {
+      return regeneratorRuntime.wrap(function _callee2$(_context2) {
         while (1) {
-          switch (_context.prev = _context.next) {
+          switch (_context2.prev = _context2.next) {
             case 0:
               setState(_objectSpread({}, state, {
                 called: true,
                 loading: true,
                 error: null
               }));
-              _context.next = 3;
+              _context2.next = 3;
               return fetch(endpoint, {
                 method: method,
                 headers: headers
-              }).then(function (response) {
-                var json = response.json();
-                setState(_objectSpread({}, state, {
-                  loading: false,
-                  data: json,
-                  called: true,
-                  error: null
+              }).then(
+              /*#__PURE__*/
+              function () {
+                var _ref2 = _asyncToGenerator(
+                /*#__PURE__*/
+                regeneratorRuntime.mark(function _callee(response) {
+                  var json;
+                  return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                      switch (_context.prev = _context.next) {
+                        case 0:
+                          _context.next = 2;
+                          return response.json();
+
+                        case 2:
+                          json = _context.sent;
+                          setState(_objectSpread({}, state, {
+                            loading: false,
+                            data: json,
+                            called: true,
+                            error: null
+                          }));
+                          typeof onCompleted === "function" && onCompleted(json); //optional callback function
+
+                        case 5:
+                        case "end":
+                          return _context.stop();
+                      }
+                    }
+                  }, _callee);
                 }));
-                typeof onCompleted === "function" && onCompleted(json); //optional callback function
-              })["catch"](function (error) {
+
+                return function (_x) {
+                  return _ref2.apply(this, arguments);
+                };
+              }())["catch"](function (error) {
                 setState(_objectSpread({}, state, {
                   error: error,
                   loading: false,
@@ -89,10 +115,10 @@ var useFetch = function useFetch(endpoint) {
 
             case 3:
             case "end":
-              return _context.stop();
+              return _context2.stop();
           }
         }
-      }, _callee);
+      }, _callee2);
     }));
 
     return function callback() {
