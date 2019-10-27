@@ -1,0 +1,19 @@
+{
+  "name": "use-fetch-react",
+  "version": "0.0.1",
+  "description": "Using fetch in a react hook.",
+  "main": "dist/index.js",
+  "author": "CalebBarnes <caleb.d.barnes@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.11.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3"
+  },
+  "scripts": {
+    "build": "babel src --out-dir dist"
+  }
+}
