@@ -29,7 +29,7 @@ const Page = () => {
         loading={loading}
         onClick={request}
       >
-        Request
+        Fetch data
       </Button>
       
       {loading && (
