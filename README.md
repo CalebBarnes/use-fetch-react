@@ -1,5 +1,8 @@
 # use-fetch-react
 
+### Installation
+`yarn add use-fetch-react`
+
 ### Usage
 
 `import { useFetch } from "use-fetch-react"`
