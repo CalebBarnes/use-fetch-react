@@ -8,7 +8,7 @@
 `yarn add use-fetch-react`
 
 ### Usage
-
+#### Basic example
 
 ```
 import React from "react";
@@ -46,4 +46,27 @@ export default function App() {
     </div>
   );
 }
+```
+
+#### More options
+
+```
+ const [executeFetch, { data, error, loading, called }] = useFetch(
+    `https://swapi.co/api/people`,
+    {
+      method: 'POST', // *GET, POST, PUT, DELETE, etc.
+      headers: {
+        authorization: `Bearer ${authToken}`,
+        'Content-Type': 'application/json',
+         // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: data,
+      onCompleted(res) {
+        console.log(res);
+      },
+      onError(err) {
+        console.log(err);
+      }
+    }
+  );
 ```
