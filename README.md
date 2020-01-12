@@ -9,45 +9,41 @@
 
 ### Usage
 
-`import { useFetch } from "use-fetch-react"`
+
 ```
-const Page = () => {
-  const [request, { data, error, loading, called }] = useFetch(
-    "https://swapi.co/api/people",
+import React from "react";
+import useFetch from "use-fetch-react";
+
+export default function App() {
+  const [executeFetch, { data, error, loading, called }] = useFetch(
+    `https://swapi.co/api/people`,
     {
-      onCompleted(response) {
-        console.log("onCompleted", response)
+      onCompleted(res) {
+        console.log(res);
       },
       onError(err) {
-        console.log("onError", err)
-      },
+        console.log(err);
+      }
     }
-  )
+  );
 
+  !called && executeFetch();
+
+  console.log({ data, error, loading, called });
   return (
-    <>
-      {!called && <p>Please press the fetch button</p>}
-      {error && <ErrorMessage>{error.message}</ErrorMessage>}
-
-      <Button
-        loading={loading}
-        onClick={request}
-      >
-        Fetch data
-      </Button>
-      
-      {loading && (
-        <div>
-          <BarLoader />
-        </div>
-      )}
-
+    <div className="App">
+      <button onClick={executeFetch}>Refresh</button>
+      {error && <p>{error.message}</p>}
+      {loading && <p>loading...</p>}
       {data &&
         data.results &&
-        data.results.map((person, index) => {
-          return <div key={index}>{person.name}</div>
-        })}
-    </>
-  )
+        data.results.map(({ name, gender, mass, height }, index) => (
+          <div key={index}>
+            {name} {" - "}
+            {gender} {mass}kg {height}cm
+          </div>
+        ))}
+    </div>
+  );
 }
 ```
