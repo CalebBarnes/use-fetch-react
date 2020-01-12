@@ -1,5 +1,9 @@
 # use-fetch-react
 
+#### Demo
+[Codesandbox link](https://codesandbox.io/s/winter-star-hpcyp?fontsize=14&hidenavigation=1&theme=dark)
+
+
 ### Installation
 `yarn add use-fetch-react`
 
