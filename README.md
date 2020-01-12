@@ -15,17 +15,7 @@ import React from "react";
 import useFetch from "use-fetch-react";
 
 export default function App() {
-  const [executeFetch, { data, error, loading, called }] = useFetch(
-    `https://swapi.co/api/people`,
-    {
-      onCompleted(res) {
-        console.log(res);
-      },
-      onError(err) {
-        console.log(err);
-      }
-    }
-  );
+  const [executeFetch, { data, error, loading, called }] = useFetch(`https://swapi.co/api/people`);
 
   !called && executeFetch();
 
