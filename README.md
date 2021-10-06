@@ -10,7 +10,7 @@
 ### Usage
 #### Basic example
 
-```
+```js
 import React from "react";
 import useFetch from "use-fetch-react";
 
@@ -40,7 +40,7 @@ export default function App() {
 
 #### More options
 
-```
+```js
  const [executeFetch, { data, error, loading, called }] = useFetch(
     `https://swapi.co/api/people`,
     {
